@@ -1,4 +1,45 @@
 .header {
   background-color: $white;
-
+  height: 10%;
+  max-height: 8rem;
+  @include default-container(2.4rem);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  box-shadow: 0 0.4rem 1rem 0 rgba(0, 0, 0, 0.03);
+  &__nav {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    &-link {
+      @include normal-futura($light-black);
+      width: 10rem;
+      position: relative;
+      &:hover {
+        @include normal-transition;
+        position: absolute;
+        content: '';
+        bottom: 1rem;
+        left: 0;
+        height: .2rem;
+        width: 3rem;
+        background-color: $orange;
+      }
+      &_active {
+        color: $orange;
+        position: relative;
+        &::before {
+          @include normal-transition;
+          position: absolute;
+          content: '';
+          bottom: 1rem;
+          left: 0;
+          height: .2rem;
+          width: 3rem;
+          background-color: $orange;
+        }
+      }
+    }
+  }
 }

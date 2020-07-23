@@ -55,3 +55,28 @@
     }
   }
 }
+
+@mixin default-container($padding-vertical) {
+  padding: $padding-vertical 3.2rem;
+  @include breakpoint(tab-port) {
+    padding: $padding-vertical 6.4rem;
+  }
+  @include breakpoint(desktop) {
+    padding: $padding-vertical 10%;
+  }
+  @include breakpoint(desktop-large) {
+    padding: $padding-vertical 15%;
+  }
+}
+
+// Font
+@mixin normal-futura($color: $light-black) {
+  font-family: $futura;
+  font-size: $normal-font-size;
+  color: $color;
+}
+
+// Animation
+@mixin normal-transition {
+  transition: all 0.2s;
+}

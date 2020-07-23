@@ -1,39 +1,68 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import { NavigationRoute, NavItems } from "../utils/constants"
 
-const Header = ({ siteTitle }) => (
-  <header
-    className={'header'}
+const NavItem = ({
+                   name,
+                   link
+                 }) => (
+  <Link to={link}
+        className={'header__nav-link'}
+        activeClassName={'header__nav-link_active'}
   >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
+    {name}
+  </Link>
 )
+const Nav = () => {
+  const navContent = [{
+    id: 1,
+    name: NavItems.HOME,
+    link: NavigationRoute.HOME
+  }, {
+    id: 2,
+    name: NavItems.ABOUT,
+    link: NavigationRoute.ABOUT
+  }, {
+    id: 3,
+    name: NavItems.PORTFOLIO,
+    link: NavigationRoute.PORTFOLIO
+  }, {
+    id: 4,
+    name: NavItems.CONTACT,
+    link: NavigationRoute.CONTACT
+  }]
+  return (
+    <nav
+      className='header__nav'
+    >
+      {navContent.map((item, i) =>
+        <NavItem key={item.id}
+                 name={item.name}
+                 link={item.link}
+        />
+      )}
+    </nav>
+
+  )
+}
+
+const Header = ({ siteTitle }) => {
+  return (
+    <header
+      className='header'
+    >
+      <Nav/>
+    </header>
+  )
+}
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
+  siteTitle: PropTypes.string
 }
 
 Header.defaultProps = {
-  siteTitle: ``,
+  siteTitle: ``
 }
 
 export default Header
