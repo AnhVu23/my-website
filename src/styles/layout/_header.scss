@@ -16,28 +16,21 @@
       @include normal-futura($light-black);
       width: 10rem;
       position: relative;
-      &:hover {
-        @include normal-transition;
+      &:before {
+        @include normal-transition();
         position: absolute;
         content: '';
-        bottom: 1rem;
+        bottom: -.8rem;
         left: 0;
         height: .2rem;
-        width: 3rem;
+        width: 0;
         background-color: $orange;
       }
-      &_active {
+      &:hover {
+        @include normal-transition();
         color: $orange;
-        position: relative;
-        &::before {
-          @include normal-transition;
-          position: absolute;
-          content: '';
-          bottom: 1rem;
-          left: 0;
-          height: .2rem;
+        &:before {
           width: 3rem;
-          background-color: $orange;
         }
       }
     }

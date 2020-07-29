@@ -9,7 +9,6 @@ const NavItem = ({
                  }) => (
   <Link to={link}
         className={'header__nav-link'}
-        activeClassName={'header__nav-link_active'}
   >
     {name}
   </Link>

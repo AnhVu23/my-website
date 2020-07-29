@@ -77,6 +77,10 @@
 }
 
 // Animation
-@mixin normal-transition {
-  transition: all 0.2s;
+@mixin normal-transition($duration: 0.3s) {
+  transition: all $duration;
+  -webkit-transition: all $duration;
+  -moz-transition: all $duration;
+  -ms-transition: all $duration;
+  -o-transition: all $duration;
 }
